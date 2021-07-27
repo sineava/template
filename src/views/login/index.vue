@@ -1,9 +1,17 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-
+    <el-form
+      ref="loginForm"
+      :model="loginForm"
+      :rules="loginRules"
+      class="login-form"
+      auto-complete="on"
+      label-position="left"
+    >
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">
+          Login Form
+        </h3>
       </div>
 
       <el-form-item prop="username">
@@ -19,7 +27,7 @@
           tabindex="1"
           auto-complete="on"
         />
-      </el-form-item> 
+      </el-form-item>
 
       <el-form-item prop="password">
         <span class="svg-container">
@@ -41,13 +49,19 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button
+        :loading="loading"
+        type="primary"
+        style="margin-bottom: 30px; width: 100%;"
+        @click.native.prevent="handleLogin"
+      >
+        Login
+      </el-button>
 
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
+        <span style="margin-right: 20px;">username: admin</span>
         <span> password: any</span>
       </div>
-
     </el-form>
   </div>
 </template>
@@ -127,111 +141,112 @@ export default {
 
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
+
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
 $bg:#283443;
-$light_gray:#fff;
-$cursor: #fff;
+$light_gray:#ffffff;
+$cursor: #ffffff;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
-  .login-container .el-input input {
-    color: $cursor;
-  }
+    .login-container .el-input input {
+        color: $cursor;
+    }
 }
 
 /* reset element-ui css */
 .login-container {
-  .el-input {
-    display: inline-block;
-    height: 47px;
-    width: 85%;
+    .el-input {
+        display: inline-block;
+        width: 85%;
+        height: 47px;
 
-    input {
-      background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      caret-color: $cursor;
+        input {
+            border: 0;
+            border-radius: 0;
+            padding: 12px 5px 12px 15px;
+            height: 47px;
+            color: $light_gray;
+            background: transparent;
+            -webkit-appearance: none;
+            caret-color: $cursor;
 
-      &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
-      }
+            &:-webkit-autofill {
+                box-shadow: 0 0 0 1000px $bg inset !important;
+                -webkit-text-fill-color: $cursor !important;
+            }
+        }
     }
-  }
 
-  .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    color: #454545;
-  }
+    .el-form-item {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        color: #454545;
+        background: rgba(0, 0, 0, 0.1);
+    }
 }
 </style>
 
 <style lang="scss" scoped>
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
-$light_gray:#eee;
+$light_gray:#eeeeee;
 
 .login-container {
-  min-height: 100%;
-  width: 100%;
-  background-color: $bg;
-  overflow: hidden;
-
-  .login-form {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
     overflow: hidden;
-  }
+    width: 100%;
+    min-height: 100%;
+    background-color: $bg;
 
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
+    .login-form {
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+        padding: 160px 35px 0;
+        width: 520px;
+        max-width: 100%;
     }
-  }
 
-  .svg-container {
-    padding: 6px 5px 6px 15px;
-    color: $dark_gray;
-    vertical-align: middle;
-    width: 30px;
-    display: inline-block;
-  }
+    .tips {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #ffffff;
 
-  .title-container {
-    position: relative;
-
-    .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
+        span {
+            &:first-of-type {
+                margin-right: 16px;
+            }
+        }
     }
-  }
 
-  .show-pwd {
-    position: absolute;
-    right: 10px;
-    top: 7px;
-    font-size: 16px;
-    color: $dark_gray;
-    cursor: pointer;
-    user-select: none;
-  }
+    .svg-container {
+        display: inline-block;
+        padding: 6px 5px 6px 15px;
+        width: 30px;
+        vertical-align: middle;
+        color: $dark_gray;
+    }
+
+    .title-container {
+        position: relative;
+
+        .title {
+            margin: 0 auto 40px auto;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            color: $light_gray;
+        }
+    }
+
+    .show-pwd {
+        position: absolute;
+        top: 7px;
+        right: 10px;
+        font-size: 16px;
+        color: $dark_gray;
+        cursor: pointer;
+        user-select: none;
+    }
 }
 </style>

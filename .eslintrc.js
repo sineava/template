@@ -57,6 +57,8 @@ module.exports = {
     'no-unused-expressions': 'off',
     'no-new': 'off',
     'vue/no-deprecated-filter': 'off',
-    'complexity': 'off'
+    'complexity': 'off',
+    'vue/no-duplicate-attributes': 'off',
+    'vue/no-deprecated-functional-template': 'off'
   }
 }

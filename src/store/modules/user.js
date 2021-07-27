@@ -50,7 +50,7 @@ const actions = {
         const { data } = response
 
         if (!data) {
-          return reject('Verification failed, please Login again.')
+          return reject(new Error('Verification failed, please Login again.'))
         }
 
         const { name, avatar } = data
