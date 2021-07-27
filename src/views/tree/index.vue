@@ -5,7 +5,6 @@
       placeholder="Filter keyword"
       style="margin-bottom: 30px;"
     />
-
     <el-tree
       ref="tree2"
       :data="data2"
@@ -78,10 +77,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-tree {
-  display: none;
-}
-</style>
-
