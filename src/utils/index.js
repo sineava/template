@@ -22,8 +22,10 @@ export function parseTime(time, cFormat) {
         // support "1548221490638"
         time = parseInt(time)
       } else {
-        // support safari
-        // https://stackoverflow.com/questions/4310953/invalid-date-in-safari
+        /*
+         * support safari
+         * https://stackoverflow.com/questions/4310953/invalid-date-in-safari
+         */
         time = time.replace(new RegExp(/-/gm), '/')
       }
     }
@@ -57,10 +59,10 @@ export function parseTime(time, cFormat) {
  * @returns {string}
  */
 export function formatTime(time, option) {
-  if (('' + time).length === 10) {
+  if ((String(time)).length === 10) {
     time = parseInt(time) * 1000
   } else {
-    time = +time
+    time = Number(time)
   }
   const d = new Date(time)
   const now = Date.now()
@@ -79,9 +81,9 @@ export function formatTime(time, option) {
   }
   if (option) {
     return parseTime(time, option)
-  } else {
-    return (
-      d.getMonth() +
+  }
+  return (
+    d.getMonth() +
       1 +
       '月' +
       d.getDate() +
@@ -90,8 +92,8 @@ export function formatTime(time, option) {
       '时' +
       d.getMinutes() +
       '分'
-    )
-  }
+  )
+
 }
 
 /**

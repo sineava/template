@@ -6,7 +6,7 @@ describe('Utils:parseTime', () => {
     expect(parseTime(d)).toBe('2018-07-13 17:54:01')
   })
   it('timestamp string', () => {
-    expect(parseTime((d + ''))).toBe('2018-07-13 17:54:01')
+    expect(parseTime((String(d)))).toBe('2018-07-13 17:54:01')
   })
   it('ten digits timestamp', () => {
     expect(parseTime((d / 1000).toFixed(0))).toBe('2018-07-13 17:54:01')
@@ -23,7 +23,7 @@ describe('Utils:parseTime', () => {
     expect(parseTime(d, '{a}')).toBe('五') // 星期五
   })
   it('get the day of the week', () => {
-    expect(parseTime(+d + 1000 * 60 * 60 * 24 * 2, '{a}')).toBe('日') // 星期日
+    expect(parseTime(Number(d) + 1000 * 60 * 60 * 24 * 2, '{a}')).toBe('日') // 星期日
   })
   it('empty argument', () => {
     expect(parseTime()).toBeNull()

@@ -1,7 +1,7 @@
 /**
  * Created by Lucas on 2019/7/22.
  */
- module.exports = {
+module.exports = {
   // https://github.com/hudochenkov/stylelint-order
   plugins: [
     'stylelint-order'

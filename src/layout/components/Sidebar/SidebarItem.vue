@@ -8,7 +8,12 @@
       </app-link>
     </template>
 
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <el-submenu
+      v-else
+      ref="subMenu"
+      :index="resolvePath(item.path)"
+      popper-append-to-body
+    >
       <template slot="title">
         <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
       </template>
@@ -51,8 +56,10 @@ export default {
     }
   },
   data() {
-    // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
-    // TODO: refactor with render function
+    /*
+     * To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
+     * TODO: refactor with render function
+     */
     this.onlyOneChild = null
     return {}
   },
@@ -61,11 +68,11 @@ export default {
       const showingChildren = children.filter(item => {
         if (item.hidden) {
           return false
-        } else {
-          // Temp set(will be used if only has one showing child)
-          this.onlyOneChild = item
-          return true
         }
+        // Temp set(will be used if only has one showing child)
+        this.onlyOneChild = item
+        return true
+
       })
 
       // When there is only one child router, the child router is displayed by default
